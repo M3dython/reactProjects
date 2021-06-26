@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 function Booklist() {
   return (
-    <section>
+    <section className='booklist'>
+      <Book />
+      <Book />
+      <Book />
       <Book />
       <Book />
       <Book />
@@ -13,11 +17,15 @@ function Booklist() {
 }
 
 const Book = () => {
+  const store = 'Best Store Ever';
   return (
-    <article>
+    <article className='book'>
       <Image></Image>
       <Title />
       <Author />
+      {/* javascript only*/}
+      {/* react will pass only values, not statements let x= 10*/}
+      <span style={{ fontSize: '0.4rem' }}>{store}</span>
     </article>
   );
 };
@@ -27,6 +35,11 @@ const Image = () => {
 };
 
 const Title = () => <h1>This is my title component</h1>;
-const Author = () => <h4>Randio Merio</h4>;
+const Author = () => (
+  //the inline css is more powerful than the declared css from the specific file
+  <h4 style={{ color: '#617d98', fontSize: '0.75rem', margin: '0.25rem' }}>
+    Randio Merio
+  </h4>
+);
 
 ReactDOM.render(<Booklist />, document.getElementById('root'));
