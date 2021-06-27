@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-
+//useState with objects
 const UseStateObject = () => {
   const [person, setPerson] = useState({
     name: 'Peter',
     age: 24,
     message: 'random message',
   });
+
+  //useState with arrays
   const [names, setName] = useState('Euler');
   const [age, setAge] = useState(34);
   const [message, setMessage] = useState('Maroon message');

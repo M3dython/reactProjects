@@ -3,7 +3,7 @@ import React from 'react';
 import { data } from '../../../data';
 
 const UseStateArray = () => {
-  // with React.useState there is no need to import {useState}
+  //with React.useState there is no need to import {useState}
   //useState() returns an array, and in this case receives data from data
   //setPeople is the function that controls the parameter people
   const [people, setPeople] = React.useState(data);
@@ -32,13 +32,13 @@ const UseStateArray = () => {
           <div key={id} className='item'>
             <h4>{name}</h4>
             {/* shouldn't use onClick={removeItem(id)} */}
-            {/* without ()=> function() the function runs at the begining of the rendering not when the button is clicked */}
+            {/* without ()=> function() the function runs at the beginning of the rendering not when the button is clicked */}
             <button onClick={() => removeItem(id)}>remove</button>
           </div>
         );
       })}
       {/* inside onClick={setPeople[]} won't work, there should be a function calling setPeople, so it only clear one */}
-      {/* with setPeople([]) the newvalue of people is an empty array */}
+      {/* with setPeople([]) the new value of people is an empty array */}
 
       <button className='btn' onClick={() => setPeople([])}>
         Clear Itens

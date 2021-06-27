@@ -1,5 +1,9 @@
 import React from 'react';
 
+//functions in react can look like this
+// const Example = (props)=>{return}
+// function Example(props) {return}
+
 const ErrorExample = () => {
   let title = 'random title';
 
@@ -21,3 +25,18 @@ const ErrorExample = () => {
 };
 
 export default ErrorExample;
+
+//this function is equivalent to the class
+//in fuction there is no this.state so useState is used to access
+// function Example() {
+//   const [count, setCount] = useState(0)
+// }
+
+// class Example extends React.Component{
+//   constructor(props){
+//     super(props);
+//     this.state ={
+//       count:0
+//     }
+//   }
+// }

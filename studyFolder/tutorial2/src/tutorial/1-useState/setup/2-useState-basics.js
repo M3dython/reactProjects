@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 //setState usually gets a function with the start of set
 const UseStateBasics = () => {
   //setText is a function that controls the parameter text
-  // evert new parameter passed to setText will be the value of text
+  // every new parameter passed to setText will be the value of text
   const [text, setText] = useState('random title');
   //when the button is click the setText function receives the parameter and changes the text
   const handleClick = () => {
@@ -31,4 +31,4 @@ export default UseStateBasics;
 //every hook starts with use
 //components that invokes the hooks must be Uppercase
 //the hook must be inside the function or the component body
-// hooks cannot be called conditionally if(hook) is not possible
+//hooks cannot be called conditionally if(hook) is not possible
