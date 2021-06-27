@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-// JS
+// JS to get the value from input
 // const input = document.getElementById('myText');
 // const inputValue = input.value
+
 // React
 // value, onChange
 // dynamic object keys
