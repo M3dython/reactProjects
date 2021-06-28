@@ -2,6 +2,11 @@ import React, { useState, useReducer } from 'react';
 import Modal from './Modal';
 //import the data to be displayed
 import { data } from '../../../data';
+// since reduces will have a lot of functionality it will be in a different file
+
+// import the reducer
+import { reducer } from './reducer';
+
 // reducer function
 //userReducer is used with a more complicated setup giving more structure to state
 //increments steps to add into state
@@ -11,34 +16,6 @@ import { data } from '../../../data';
 // reducer is a simple function that gets the state just before updated and the action
 //action is what is desired to do
 //reducer always should return some kind of state without returning state the functionalities wont work
-
-const reducer = (state, action) => {
-  //if the dispatch function is the same as the action function.type
-  //return the new state if it is correct
-  if (action.type === 'ADD_ITEM') {
-    //copies all the value from state right before the update it with the desired values
-    //checking for the type and grab the payload
-    const newPeople = [...state.people, action.payload];
-
-    //if the intention is to change only one value, can't forget to pass all the old values
-    return {
-      ...state,
-      people: newPeople,
-      isModalOpen: true,
-      modalContent: 'item added',
-    };
-  }
-  if (action.type === 'NO_VALUE') {
-    return { ...state, isModalOpen: true, modalContent: 'please enter value' };
-  }
-  // reducer is a simple function that gets the state just before updated and the action
-  //action is what is desired to do
-  console.log(state, action);
-  //throw error if there is no matching action type
-  throw new Error('no matching action type ');
-
-  //  return state;
-};
 
 //state to be passed in the useReducer with multiple properties
 //only updates once when called dispatch
@@ -87,6 +64,11 @@ const Index = () => {
       // setShowModal(true);
     }
   };
+
+  const closeModal = () => {
+    dispatch({ type: 'CLOSE_MODAL' });
+  };
+
   return (
     <>
       {/* {showModal && <Modal />} */}
@@ -94,7 +76,9 @@ const Index = () => {
       the property modalContent is coming from the stateValue
       sets the parameter of the component Modal to be modalContent
       reducer will return state*/}
-      {state.isModalOpen && <Modal modalContent={state.modalContent} />}
+      {state.isModalOpen && (
+        <Modal closeModal={closeModal} modalContent={state.modalContent} />
+      )}
       <form onSubmit={handleSubmit} className='form'>
         <div>
           {/* the value of the input will be used to set name */}
@@ -110,8 +94,16 @@ const Index = () => {
       {/* displays the list  */}
       {state.people.map((person) => {
         return (
-          <div key={person.id}>
+          <div key={person.id} className='item'>
             <h4>{person.name}</h4>
+            {/* payload says specific which item should be removed */}
+            <button
+              onClick={() =>
+                dispatch({ type: 'REMOVE_ITEM', payload: person.id })
+              }
+            >
+              remove
+            </button>
           </div>
         );
       })}
