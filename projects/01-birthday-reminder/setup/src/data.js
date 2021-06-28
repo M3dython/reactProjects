@@ -1,3 +1,4 @@
+// the array is exported by default, therefore there is no need to use or have a specific name
 export default [
   {
     id: 1,
