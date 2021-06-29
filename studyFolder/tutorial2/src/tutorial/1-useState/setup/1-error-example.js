@@ -26,12 +26,13 @@ const ErrorExample = () => {
 
 export default ErrorExample;
 
-//this function is equivalent to the class
-//in fuction there is no this.state so useState is used to access
+// this function is equivalent to the class
+
 // function Example() {
 //   const [count, setCount] = useState(0)
 // }
 
+// in function there is no this.state so useState is used to access
 // class Example extends React.Component{
 //   constructor(props){
 //     super(props);

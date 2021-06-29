@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 //useState() returns an array <<
 //useState() return a function that will control the parameter
 
-//array destruction allows everything to be in the same line
+//array destructuring allows everything to be in the same line
 //setState usually gets a function with the start of set
 const UseStateBasics = () => {
   //setText is a function that controls the parameter text
