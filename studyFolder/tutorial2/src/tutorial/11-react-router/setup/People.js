@@ -10,6 +10,9 @@ const People = () => {
         return (
           <div key={person.id} className='item'>
             <h4>{person.name}</h4>
+            {/* remember the path is set as /person/:id,
+            create a page for each id passed  */}
+            <Link to={`/person/${person.id}`}>Learn More </Link>
           </div>
         );
       })}
